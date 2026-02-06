@@ -5,5 +5,7 @@ class RoutePaths {
   /// static const stringName = "String";
 
   static const String initialRoute = "/";
+  static const String counterProfileRoute = "/counterProfileRoute";
+  static const String timerProfileRoute = "/timerProfileRoute";
 
 }

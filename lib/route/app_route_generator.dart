@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rep_count/features/counter_profile/counter_profile_screen.dart';
+import 'package:rep_count/features/timer_profile/timer_profile_screen.dart';
 import 'package:rep_count/navigation/bottom_navigation_widget.dart';
 import 'package:rep_count/route/app_route_path_constants.dart';
 
@@ -13,6 +15,12 @@ class AppRouteGenerator {
       case RoutePaths.initialRoute:
         return MaterialPageRoute(
             builder: (_) =>  const BottomNavigationWidget());
+      case RoutePaths.counterProfileRoute:
+        return MaterialPageRoute(
+            builder: (_) =>  const CounterProfileScreen());
+      case RoutePaths.timerProfileRoute:
+        return MaterialPageRoute(
+            builder: (_) =>  const TimerProfileScreen());
       default:
         return null;
     }
