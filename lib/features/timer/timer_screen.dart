@@ -15,7 +15,12 @@ class TimerScreen extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         itemCount: 15,
         itemBuilder: (context, index) {
-          return ProfileListItemWidget();
+          return GestureDetector(
+              child: ProfileListItemWidget(),
+              onTap: (){
+                Navigator.of(context).pushNamed(RoutePaths.timerActionRoute);
+              },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
