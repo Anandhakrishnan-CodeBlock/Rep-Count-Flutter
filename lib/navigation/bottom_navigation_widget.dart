@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rep_count/features/counter/counter_screen.dart';
+import 'package:rep_count/features/counter/counter_list_screen.dart';
 import 'package:rep_count/features/settings/settings_screen.dart';
-import 'package:rep_count/features/timer/timer_screen.dart';
+import 'package:rep_count/features/timer/timer_list_screen.dart';
 
 
 class BottomNavigationWidget extends StatefulWidget {

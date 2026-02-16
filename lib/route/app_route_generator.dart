@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:rep_count/features/counter_action/counter_action_screen.dart';
-import 'package:rep_count/features/counter_profile/counter_profile_screen.dart';
-import 'package:rep_count/features/timer_action/timer_action_screen.dart';
-import 'package:rep_count/features/timer_profile/timer_profile_screen.dart';
+import 'package:rep_count/features/counter/counter_workout_screen.dart';
+import 'package:rep_count/features/counter/counter_profile_screen.dart';
+import 'package:rep_count/features/timer/timer_workout_screen.dart';
+import 'package:rep_count/features/timer/timer_profile_screen.dart';
 import 'package:rep_count/navigation/bottom_navigation_widget.dart';
 import 'package:rep_count/route/app_route_path_constants.dart';
+import 'package:rep_count/utility/args/counter_workout_args.dart';
+import 'package:rep_count/utility/args/timer_workout_args.dart';
 
 /// This file use to configure route configurations,
 /// And set up corresponding screen to the ScreenClass file,
@@ -24,11 +26,17 @@ class AppRouteGenerator {
         return MaterialPageRoute(
             builder: (_) =>  const TimerProfileScreen());
       case RoutePaths.counterActionRoute:
+        CounterWorkoutArgs counterArgs = args as CounterWorkoutArgs;
         return MaterialPageRoute(
-            builder: (_) =>  const CounterActionScreen());
+            builder: (_) => CounterWorkoutScreen(
+              args: counterArgs,
+            ));
       case RoutePaths.timerActionRoute:
+        TimerWorkoutArgs timerWorkoutArgs = args as TimerWorkoutArgs;
         return MaterialPageRoute(
-            builder: (_) =>  const TimerActionScreen());
+            builder: (_) =>  TimerWorkoutScreen(
+              args: timerWorkoutArgs,
+            ));
       default:
         return null;
     }

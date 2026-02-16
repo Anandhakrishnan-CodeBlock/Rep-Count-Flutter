@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rep_count/components/widget/profile_list_item_widget.dart';
 import 'package:rep_count/route/app_route_path_constants.dart';
+import 'package:rep_count/utility/args/counter_workout_args.dart';
 
 class CounterScreen extends StatelessWidget {
   const CounterScreen({super.key});
@@ -8,14 +9,26 @@ class CounterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Counter"),
-      ),
+      appBar: AppBar(title: Text("Counter")),
       body: ListView.builder(
         padding: EdgeInsets.all(16.0),
         itemCount: 15,
         itemBuilder: (context, index) {
-          return ProfileListItemWidget();
+          return GestureDetector(
+            child: ProfileListItemWidget(),
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                RoutePaths.counterActionRoute,
+                arguments: CounterWorkoutArgs(
+                  startDuration: Duration(seconds: 6),
+                  relaxDuration: Duration(seconds: 10),
+                  totalSets: 3,
+                  repsPerSet: 15,
+                  repCountDuration: Duration(seconds: 2)
+                ),
+              );
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
